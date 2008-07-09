@@ -11,7 +11,7 @@ default do
 
     text = timeline.first['text'].gsub('"', "'")
 
-    execute 'swift', %{"Callie^#{text}"}
+    execute 'swift', %{"Callie^#{text} ,, End Of Line."}
   rescue 
     execute 'swift', %{"Sorry, we weren't able to get the status for the Mars Phoenix project."}
     raise
