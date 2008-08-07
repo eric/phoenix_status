@@ -1,3 +1,4 @@
 *~
 adhearsion.pid
 log/*.log
+config/config.yml

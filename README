@@ -3,3 +3,12 @@ Start the app with "ahn start ."
 You can call in to the running script at (206) 357-6220 x12455
 to hear a sample.
 
+
+You need to put your AMI credentials in config/config.yml for watchr.rb to
+work. For example:
+
+  ami:
+    username: manager
+    password: somepassword
+    host: vox4.local
+    port: 2732
