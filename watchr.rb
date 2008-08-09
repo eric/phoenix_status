@@ -3,7 +3,7 @@ require 'drb'
 require 'activesupport'
 require 'open-uri'
 
-PHONE_NUMBER = '12066838769'
+PHONE_NUMBER = '12061234567'
 TWITTER_USER = 'MarsPhoenix'
 AGI_URL = "agi://my.computer.com:4573/default?twitter_user=#{TWITTER_USER}"
 OUTGOING_CONTEXT = 'outgoing-99'
