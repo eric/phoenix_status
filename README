@@ -5,7 +5,7 @@ to hear a sample.
 
 
 You need to put your AMI credentials in config/config.yml for watchr.rb to
-work. For example:
+work, as in config.yml.template. For example:
 
   ami:
     username: manager
