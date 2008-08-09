@@ -1,11 +1,12 @@
-
+require 'rubygems'
 require 'drb'
 require 'activesupport'
 require 'open-uri'
 
-PHONE_NUMBER = '12063787668'
+PHONE_NUMBER = '12066838769'
 TWITTER_USER = 'MarsPhoenix'
-AGI_URL = 'agi://alien.5stops.com:4574/default'
+AGI_URL = "agi://my.computer.com:4573/default?twitter_user=#{TWITTER_USER}"
+OUTGOING_CONTEXT = 'outgoing-99'
 
 class TwitterWatch
   attr_reader :thread, :username
@@ -19,6 +20,7 @@ class TwitterWatch
     catch(:finished) do
       loop do
         if tweet_id = get_latest_tweet_id
+          puts tweet_id
           if @last_tweet_id && @last_tweet_id != tweet_id
             puts "New tweet id: #{tweet_id}"
             block.call
@@ -48,6 +50,7 @@ Adhearsion = DRbObject.new_with_uri('druby://localhost:48370')
 tw = TwitterWatch.new(TWITTER_USER)
 
 tw.on_update do
-  Adhearsion.proxy.call_and_exec "Local/#{PHONE_NUMBER}@outgoing-9", 'Agi', :args => AGI_URL
+  Adhearsion.proxy.call_and_exec "Local/#{PHONE_NUMBER}@#{OUTGOING_CONTEXT}", 
+    'Agi', :args => AGI_URL
 end
 

@@ -5,15 +5,16 @@ require 'open-uri'
 #
 default do
   begin
-    timeline = open('http://twitter.com/statuses/user_timeline/MarsPhoenix.json').read
+    twitter_user ||= 'MarsPhoenix'
+    timeline = open("http://twitter.com/statuses/user_timeline/#{twitter_user}.json").read
     timeline = ActiveSupport::JSON.decode(timeline)
     timeline.reject! { |status| status['text'].match(/^@/) }
 
     text = timeline.first['text'].gsub('"', "'")
 
-    execute 'swift', %{"Callie^#{text} ,, End Of Line."}
+    execute 'swift', %{"Callie^There's been a new tweet!  Here's what it says: ,, #{text} ,,, Good bye."}
   rescue 
-    execute 'swift', %{"Sorry, we weren't able to get the status for the Mars Phoenix project."}
+    execute 'swift', %{"Sorry, we weren't able to get the newest tweet.  Please try again later."}
     raise
   end
 end

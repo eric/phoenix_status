@@ -27,7 +27,7 @@ Adhearsion::Configuration.configure do |config|
   # config.end_call_on_error = false
   
   # By default Asterisk is enabled with the default settings
-  config.enable_asterisk :listening_port => 4574, :listening_host => '0.0.0.0'
+  config.enable_asterisk :listening_port => 4573, :listening_host => '0.0.0.0'
 
   if local_config['ami']
     config.asterisk.enable_ami local_config['ami']

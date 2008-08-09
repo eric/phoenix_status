@@ -1,0 +1,6 @@
+ami:
+  username: manager
+  password: MANAGER_PASSWORD
+  host: CLOUDVOX_HOSTNAME
+  port: CLOUDVOX_PORT
+
